@@ -2,7 +2,6 @@ import Grid from "@mui/material/Grid";
 
 // GLOBAL CUSTOM COMPONENTS
 import Container from "components/Container";
-import { SectionHeader } from "components/section-header";
 import ProductCard17 from "components/product-cards/product-card-17";
 
 // API FUNCTIONS
@@ -11,7 +10,6 @@ export default async function Section4() {
   const products = await api.getJustForYou();
   if (!products || products.length === 0) return null;
   return <Container>
-      <SectionHeader title="Just for you" seeMoreLink="#" />
 
       <Grid container spacing={3}>
         {products.map(product => <Grid size={{

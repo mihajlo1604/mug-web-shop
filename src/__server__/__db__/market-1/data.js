@@ -1,20 +1,23 @@
+// Import termosi products
+import { products as termosiProducts } from "./termosi-data";
+
 export const mainCarouselData = [{
-  title: "50% Off For Your First Shopping",
+  title: "carousel.title1",
   imgUrl: "/assets/images/market-1/airpod-1.png",
-  description: "Get Free Shipping on all orders over $99.00",
-  buttonText: "Shop Now",
+  description: "carousel.description1",
+  buttonText: "carousel.shopNow",
   buttonLink: "#"
 }, {
-  title: "50% Off For Your First Shopping",
+  title: "carousel.title1",
   imgUrl: "/assets/images/market-1/speaker-5.png",
-  description: "Get Free Shipping on all orders over $99.00",
-  buttonText: "Shop Now",
+  description: "carousel.description1",
+  buttonText: "carousel.shopNow",
   buttonLink: "#"
 }, {
-  title: "50% Off For Your First Shopping",
+  title: "carousel.title1",
   imgUrl: "/assets/images/market-1/bag-1.png",
-  description: "Get Free Shipping on all orders over $99.00",
-  buttonText: "Shop Now",
+  description: "carousel.description1",
+  buttonText: "carousel.shopNow",
   buttonLink: "#"
 }];
 export const categories = [{
@@ -874,7 +877,7 @@ export const products = [{
     demo: "market-1",
     type: "all-products"
   }
-}];
+}, ...termosiProducts];
 export const services = [{
   id: "5f9bd366-9583-4e6d-9b11-abe74b9c5d96",
   icon: "Truck",

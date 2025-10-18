@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import { ListIconWrapper } from "../styles";
 
 // CUSTOM ICON COMPONENTS
-import Icons from "icons/grocery-4";
+import Icons from "icons";
 
 
 // ==============================================================

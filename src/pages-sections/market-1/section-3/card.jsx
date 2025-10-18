@@ -17,8 +17,7 @@ export default function Card({
   image,
   link
 }) {
-  return <Link href={link} aria-label={`Go to ${name} category`}>
-      <StyledRoot>
+  return <StyledRoot>
         <Image fill priority quality={90} alt={name} src={image} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
 
         <CardContent>
@@ -28,11 +27,6 @@ export default function Card({
         }}>
             {name}
           </Typography>
-
-          <CardButton aria-label={`See more about ${name}`}>
-            <ArrowForward fontSize="small" />
-          </CardButton>
         </CardContent>
-      </StyledRoot>
-    </Link>;
+      </StyledRoot>;
 }

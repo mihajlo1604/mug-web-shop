@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 // MUI
 import Box from "@mui/material/Box";
@@ -26,6 +27,7 @@ import OverlayScrollbar from "components/overlay-scrollbar";
 // CUSTOM DATA MODEL
 
 export default function MiniCart() {
+  const { t } = useTranslation();
   const router = useRouter();
   const {
     state,
@@ -46,7 +48,7 @@ export default function MiniCart() {
   };
   return <Box height="100vh" width={380}>
       <FlexBetween ml={3} mr={2} height={74}>
-        <Typography variant="h6">Your Cart ({CART_LENGTH})</Typography>
+        <Typography variant="h6">{t('Your Cart')} ({CART_LENGTH})</Typography>
 
         <IconButton size="small" onClick={router.back}>
           <Clear fontSize="small" />
@@ -62,17 +64,10 @@ export default function MiniCart() {
       </Box>
 
       {CART_LENGTH > 0 && <Box p={2.5}>
-          <Button fullWidth color="primary" variant="contained" LinkComponent={Link} href="/checkout-alternative" sx={{
-        height: 44,
-        mb: 1
-      }}>
-            Proceed to Checkout
-          </Button>
-
           <Button fullWidth color="primary" variant="outlined" LinkComponent={Link} href="/cart" sx={{
         height: 44
       }}>
-            View Cart
+            {t('cart.viewCart')}
           </Button>
         </Box>}
     </Box>;

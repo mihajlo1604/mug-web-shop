@@ -3,6 +3,9 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
+import { useTranslation } from "react-i18next";
 
 // GLOBAL CUSTOM HOOK
 import useCart from "hooks/useCart";
@@ -13,6 +16,7 @@ import CartItem from "../cart-item";
 import EmptyCart from "../empty-cart";
 import CheckoutForm from "../checkout-form";
 export default function CartPageView() {
+  const { t } = useTranslation();
   const {
     state,
     dispatch
@@ -31,7 +35,7 @@ export default function CartPageView() {
           <Button disableElevation color="error" variant="outlined" startIcon={<Trash fontSize="small" />} onClick={() => dispatch({
           type: "CLEAR_CART"
         })}>
-            Clear Cart
+            {t('cart.clearCart')}
           </Button>
         </Box>
       </Grid>

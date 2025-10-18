@@ -47,24 +47,9 @@ const STEPPER_LIST = [{
   title: "Cart",
   disabled: false,
   path: "/cart"
-}, {
-  title: "Details",
-  disabled: false,
-  path: "/checkout"
-}, {
-  title: "Payment",
-  disabled: false,
-  path: "/payment"
-}, {
-  title: "Review",
-  disabled: true,
-  path: "/orders"
 }];
 const PATH_TO_STEP = {
-  "/cart": 0,
-  "/orders": 3,
-  "/payment": 2,
-  "/checkout": 1
+  "/cart": 0
 };
 export default function Steppers() {
   const router = useRouter();

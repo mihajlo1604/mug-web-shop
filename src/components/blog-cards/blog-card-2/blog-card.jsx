@@ -1,7 +1,9 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns/format";
 import Typography from "@mui/material/Typography";
+import { useTranslation } from "react-i18next";
 
 // GLOBAL CUSTOM COMPONENT
 import IconLink from "components/icon-link";
@@ -17,15 +19,24 @@ import { ContentWrapper, ImageContainer, StyledRoot } from "./styles";
 
 export default function BlogCard2({
   title,
+  titleSr,
   date,
   description,
+  descriptionSr,
   thumbnail,
   link = "#"
 }) {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language || 'en';
+  
+  // Use translated content based on current language
+  const displayTitle = currentLang === 'sr' && titleSr ? titleSr : title;
+  const displayDescription = currentLang === 'sr' && descriptionSr ? descriptionSr : description;
+
   return <StyledRoot>
       <Link href={link}>
         <ImageContainer>
-          <Image fill alt={title} src={thumbnail} />
+          <Image fill alt={displayTitle} src={thumbnail} />
         </ImageContainer>
       </Link>
 
@@ -38,15 +49,15 @@ export default function BlogCard2({
 
         <Link href={link}>
           <Typography variant="h3" fontSize={22} fontWeight={700}>
-            {title}
+            {displayTitle}
           </Typography>
         </Link>
 
         <Typography variant="body1" fontSize={16} className="description">
-          {description}
+          {displayDescription}
         </Typography>
 
-        <IconLink title="Read More" url="#" />
+        <IconLink title={currentLang === 'sr' ? 'Pročitaj Više' : 'Read More'} url={link} />
       </ContentWrapper>
     </StyledRoot>;
 }

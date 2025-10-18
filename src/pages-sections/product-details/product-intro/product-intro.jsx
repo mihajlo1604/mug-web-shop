@@ -4,11 +4,12 @@ import Link from "next/link";
 import Grid from "@mui/material/Grid";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 // LOCAL CUSTOM COMPONENTS
 import AddToCart from "./add-to-cart";
 import ProductGallery from "./product-gallery";
-import ProductVariantSelector from "./product-variant-selector";
 
 // CUSTOM UTILS LIBRARY FUNCTION
 import { currency } from "lib";
@@ -27,7 +28,7 @@ import { StyledRoot } from "./styles";
 export default function ProductIntro({
   product
 }) {
-  return <StyledRoot>
+  return <StyledRoot sx={{ mt: 24 }}>
       <Grid container spacing={3} justifyContent="space-around">
         {/* IMAGE GALLERY AREA */}
         <Grid size={{
@@ -46,25 +47,11 @@ export default function ProductIntro({
           <Typography variant="h1">{product.title}</Typography>
 
           <Typography variant="body1">
-            Category: <strong>Bag</strong>
+            Category: <strong>{product.categories?.[0] || 'Thermos'}</strong>
           </Typography>
 
           <Typography variant="body1">
-            Product Code: <strong>ERE238</strong>
-          </Typography>
-
-          <Typography variant="body1" fontSize={30} fontWeight={700} sx={{
-          my: 1
-        }}>
-            $484.00{" "}
-            <Typography component="span" sx={{
-            fontSize: 20,
-            fontWeight: 600,
-            color: "text.secondary",
-            textDecoration: "line-through"
-          }}>
-              $550.00
-            </Typography>
+            Product Code: <strong>{product.id}</strong>
           </Typography>
 
           {/* PRODUCT BRAND */}
@@ -72,17 +59,9 @@ export default function ProductIntro({
               Brand: <strong>{product.brand}</strong>
             </p>}
 
-          {/* PRODUCT RATING */}
-          <div className="rating">
-            <span>Rated:</span>
-            <Rating readOnly color="warn" size="small" value={product.rating} />
-            <Typography variant="h6">({product.reviews?.length || 0})</Typography>
-          </div>
 
-          {/* PRODUCT VARIANTS */}
-          <ProductVariantSelector />
 
-          {/* PRICE & STOCK */}
+          {/* PRICE */}
           <div className="price">
             <Typography variant="h2" sx={{
             color: "primary.main",
@@ -91,8 +70,6 @@ export default function ProductIntro({
           }}>
               {currency(product.price)}
             </Typography>
-
-            <p>Stock Available</p>
           </div>
 
           {/* ADD TO CART BUTTON */}

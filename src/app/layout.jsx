@@ -37,7 +37,7 @@ export default function RootLayout({
   modal
 }) {
   return <html lang="en" suppressHydrationWarning>
-      <body id="body" className={geist.className}>
+      <body id="body" className={geist.className} suppressHydrationWarning>
         <CartProvider>
           <SettingsProvider>
             <ThemeProvider>

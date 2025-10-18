@@ -18,7 +18,6 @@ export default function Section5() {
         md: 6,
         xs: 12
       }}>
-          <Link href="/products/search">
             <CardRoot>
               <Image width={588} height={340} alt="Summer Collection" src="/assets/images/market-1/promo-1.jpg" />
 
@@ -36,20 +35,14 @@ export default function Section5() {
                     accessories
                   </Typography>
                 </div>
-
-                <Button variant="contained" color="primary" size="large">
-                  Shop Now
-                </Button>
               </CardContent>
             </CardRoot>
-          </Link>
         </Grid>
 
         <Grid size={{
         md: 6,
         xs: 12
       }}>
-          <Link href="/products/search">
             <CardRoot>
               <Image width={588} height={340} alt="Spring Essentials" src="/assets/images/market-1/promo-2.jpg" />
 
@@ -67,13 +60,8 @@ export default function Section5() {
                     accessories
                   </Typography>
                 </div>
-
-                <Button variant="contained" color="primary" size="large">
-                  Shop Now
-                </Button>
               </CardContent>
             </CardRoot>
-          </Link>
         </Grid>
       </Grid>
     </Container>;

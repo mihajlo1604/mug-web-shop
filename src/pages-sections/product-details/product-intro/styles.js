@@ -47,7 +47,7 @@ export const ProductImageWrapper = styled("div")(({
   justifyContent: "center",
   marginBottom: theme.spacing(6),
   "& img": {
-    objectFit: "cover"
+    objectFit: "contain"
   },
   [theme.breakpoints.down("sm")]: {
     height: 300

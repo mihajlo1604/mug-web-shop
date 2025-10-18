@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 import Trash from "icons/Trash";
 const EmptyCartWrapper = styled("div")(({
   theme
@@ -29,23 +32,25 @@ const IconWrapper = styled("div")(({
   fontSize: 48
 }));
 export default function EmptyCart() {
+  const { t } = useTranslation();
+  
   return <EmptyCartWrapper>
       <IconWrapper>
         <Trash color="inherit" fontSize="inherit" />
       </IconWrapper>
 
       <Typography variant="body1" fontSize={24} fontWeight={600}>
-        Your cart is empty
+        {t('cart.empty.title')}
       </Typography>
 
       <Typography variant="body1" fontSize={16} color="text.secondary" sx={{
       mb: 3
     }}>
-        Looks like you haven't added anything to your cart yet.
+        {t('cart.empty.description')}
       </Typography>
 
-      <Button variant="contained" color="primary" href="/products" LinkComponent={Link}>
-        Start Shopping
+      <Button variant="contained" color="primary" href="/" LinkComponent={Link}>
+        {t('cart.startShopping')}
       </Button>
     </EmptyCartWrapper>;
 }

@@ -1,10 +1,67 @@
-import ShopLayout1 from "components/layouts/shop-layout-1";
+"use client";
 
-// API FUNCTIONS
-import api from "utils/__api__/layout";
-export default async function Layout1({
+import Link from "next/link";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import HomeIcon from "@mui/icons-material/Home";
+import { useTranslation } from "react-i18next";
+import LanguageToggle from "components/language-toggle";
+import BlogButton from "components/blog-button";
+import CartButton from "components/cart-button";
+
+// Simple layout without navbar for product pages
+export default function ProductLayout({
   children
 }) {
-  const data = await api.getLayoutData();
-  return <ShopLayout1 data={data}>{children}</ShopLayout1>;
+  const { t } = useTranslation();
+  
+  return (
+    <div>
+      {/* Top-left buttons */}
+      <Box sx={{ 
+        position: 'fixed', 
+        top: 20, 
+        left: 20, 
+        zIndex: 1000,
+        display: 'flex',
+        gap: 2,
+        flexWrap: 'wrap'
+      }}>
+        <Button
+          component={Link}
+          href="/"
+          variant="contained"
+          color="primary"
+          startIcon={<HomeIcon />}
+          sx={{
+            borderRadius: 2,
+            px: 3,
+            py: 1,
+            boxShadow: 2,
+            '&:hover': {
+              boxShadow: 4,
+            }
+          }}
+        >
+          {t('Home')}
+        </Button>
+        <LanguageToggle />
+      </Box>
+      
+      {/* Top-right Blog button */}
+      <Box sx={{ 
+        position: 'fixed', 
+        top: 20, 
+        right: 20, 
+        zIndex: 1000
+      }}>
+        <BlogButton />
+      </Box>
+      
+      {/* Bottom-right Cart button */}
+      <CartButton />
+      
+      {children}
+    </div>
+  );
 }

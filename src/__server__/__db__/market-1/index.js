@@ -7,7 +7,7 @@
 
 // CONTACT US AT support@ui-lib.com
 
-import * as db from "./data";
+import * as db from "./termosi-data";
 import shops from "../shop/data";
 const flashDeals = db.products.filter(item => item.for.type === "flash-deals");
 const justForYou = db.products.filter(item => item.for.type === "just-for-you");
