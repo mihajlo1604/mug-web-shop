@@ -4,11 +4,11 @@ import nodemailer from 'nodemailer';
 export async function POST(request) {
   try {
     const orderData = await request.json();
-    
+
     // Validate required fields
     const requiredFields = ['fullName', 'phone', 'email', 'addressLine1', 'country', 'zipCode'];
     const missingFields = requiredFields.filter(field => !orderData[field] || orderData[field].trim() === '');
-    
+
     if (missingFields.length > 0) {
       return NextResponse.json(
         { error: `Missing required fields: ${missingFields.join(', ')}` },
@@ -142,7 +142,7 @@ export async function POST(request) {
           </p>
         ` : ''}
         
-        <p>We will send you another email once your order has been shipped.</p>
+        <p>Please expect your shipment within 3 to 5 working days.</p>
         
         <p>Thank you for choosing us!</p>
         
