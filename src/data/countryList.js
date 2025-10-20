@@ -617,9 +617,12 @@ export default [{
   label: "Surilabel",
   value: "SR"
 }, {
-  label: "Svalbard and Jan Mayen",
-  value: "SJ"
+  label: "Serbia",
+  value: "RS"
 }, {
+  label: "Montenegro",
+  value: "ME"
+},{
   label: "Swaziland",
   value: "SZ"
 }, {
