@@ -34,7 +34,7 @@ export default function OrderConfirmationPageView() {
           width={220}
           height={74}
           alt="DOSE logo"
-          src="/assets/images/withBackgroundLogo.png"
+          src="/assets/images/DoseLogo.png"
         />
 
         <Typography variant="h1" fontWeight={700}>
