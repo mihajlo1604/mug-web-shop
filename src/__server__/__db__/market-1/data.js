@@ -1,25 +1,64 @@
 // Import termosi products
 import { products as termosiProducts } from "./termosi-data";
 
-export const mainCarouselData = [{
-  title: "carousel.title1",
-  imgUrl: "/assets/images/market-1/airpod-1.png",
-  description: "carousel.description1",
-  buttonText: "carousel.shopNow",
-  buttonLink: "#"
-}, {
-  title: "carousel.title1",
-  imgUrl: "/assets/images/market-1/speaker-5.png",
-  description: "carousel.description1",
-  buttonText: "carousel.shopNow",
-  buttonLink: "#"
-}, {
-  title: "carousel.title1",
-  imgUrl: "/assets/images/market-1/bag-1.png",
-  description: "carousel.description1",
-  buttonText: "carousel.shopNow",
-  buttonLink: "#"
-}];
+export const mainCarouselData = [
+  {
+    title: "carousel.title1",
+    imgUrl: "/assets/images/B69B9222.jpg",
+    description: "carousel.description1",
+    buttonText: "carousel.shopNow",
+    buttonLink: "#",
+  },
+  {
+    title: "carousel.title1",
+    imgUrl: "/assets/images/B69B8871.jpg",
+    description: "carousel.description1",
+    buttonText: "carousel.shopNow",
+    buttonLink: "#",
+  },
+  {
+    title: "carousel.title1",
+    imgUrl: "/assets/images/B69B9240.jpg",
+    description: "carousel.description1",
+    buttonText: "carousel.shopNow",
+    buttonLink: "#",
+  },
+  {
+    title: "carousel.title1",
+    imgUrl: "/assets/images/B69B9243.jpg",
+    description: "carousel.description1",
+    buttonText: "carousel.shopNow",
+    buttonLink: "#",
+  },
+  {
+    title: "carousel.title1",
+    imgUrl: "/assets/images/B69B9248.jpg",
+    description: "carousel.description1",
+    buttonText: "carousel.shopNow",
+    buttonLink: "#",
+  },
+  {
+    title: "carousel.title1",
+    imgUrl: "/assets/images/B69B9562.jpg",
+    description: "carousel.description1",
+    buttonText: "carousel.shopNow",
+    buttonLink: "#",
+  },
+  {
+    title: "carousel.title1",
+    imgUrl: "/assets/images/B69B9580.jpg",
+    description: "carousel.description1",
+    buttonText: "carousel.shopNow",
+    buttonLink: "#",
+  },
+  {
+    title: "carousel.title1",
+    imgUrl: "/assets/images/B69B9643.jpg",
+    description: "carousel.description1",
+    buttonText: "carousel.shopNow",
+    buttonLink: "#",
+  },
+];
 export const categories = [{
   id: "f4c1291a-ff9e-4aa2-aa6c-95eb8b8bcc5e",
   name: "Accessories",

@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
+import { useEffect, useState } from "react";
 
 
 // STYLED COMPONENT
@@ -54,14 +55,23 @@ export function CarouselArrows({
   onClickPrev,
   onClickNext
 }) {
+  // Avoid SSR/CSR mismatch for the disabled attribute by setting it after mount
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  const prevDisabled = hydrated ? !!disablePrev : undefined;
+  const nextDisabled = hydrated ? !!disableNext : undefined;
+
   return <>
-      <ArrowButton className="prev" disabled={disablePrev} onClick={onClickPrev} sx={slotProps?.prev?.sx}>
+      <ArrowButton className="prev" disabled={prevDisabled} onClick={onClickPrev} sx={slotProps?.prev?.sx}>
         <SvgIcon fontSize="small" color="inherit" className="back-icon">
           <path fill="currentColor" fillRule="evenodd" clipRule="evenodd" d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081" />
         </SvgIcon>
       </ArrowButton>
 
-      <ArrowButton className="next" disabled={disableNext} onClick={onClickNext} sx={slotProps?.next?.sx}>
+      <ArrowButton className="next" disabled={nextDisabled} onClick={onClickNext} sx={slotProps?.next?.sx}>
         <SvgIcon fontSize="small" color="inherit" className="forward-icon">
           <path fill="currentColor" clipRule="evenodd" fillRule="evenodd" d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057" />
         </SvgIcon>

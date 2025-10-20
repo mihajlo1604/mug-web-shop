@@ -26,27 +26,14 @@ const createProduct = ({ id, sizeLabel, categoryLabel, colorName, price, discoun
 // Hero carousel content
 // =====================
 export const mainCarouselData = [
-  {
-    title: "carousel.stayHydrated",
-    imgUrl: "/assets/images/products/termosi/30oz 1000px/Termos-30oz-black-1.jpg",
-    description: "carousel.stayHydratedDesc",
-    buttonText: "carousel.shopMax",
-    buttonLink: "/products/search?query=Thermos%20Max%20(1.2L)"
-  },
-  {
-    title: "carousel.everydayCarry",
-    imgUrl: "/assets/images/products/termosi/30oz 1000px/Termos-30oz-cream-1.jpg",
-    description: "carousel.everydayCarryDesc",
-    buttonText: "carousel.shopRegular",
-    buttonLink: "/products/search?query=Thermos%20Regular%20(0.88L)"
-  },
-  {
-    title: "carousel.compactMini",
-    imgUrl: "/assets/images/products/termosi/20oz 1000px/Termos-20oz-sage-1.jpg",
-    description: "carousel.compactMiniDesc",
-    buttonText: "carousel.shopMini",
-    buttonLink: "/products/search?query=Thermos%20Mini%20(0.6L)"
-  }
+  { title: "carousel.title1", imgUrl: "/assets/images/B69B9222.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/B69B8871.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/B69B9240.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/B69B9243.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/B69B9248.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/B69B9562.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/B69B9580.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/B69B9643.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" }
 ];
 
 // ===============

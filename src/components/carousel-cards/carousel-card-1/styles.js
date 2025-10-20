@@ -4,8 +4,10 @@ import { styled } from "@mui/material/styles";
 export const StyledRoot = styled("div")(({
   theme
 }) => ({
+  position: "relative",
+  height: 560,
   ".title": {
-    fontSize: 48,
+    fontSize: 44,
     marginTop: 0,
     fontWeight: 900,
     lineHeight: 1.2,
@@ -13,7 +15,7 @@ export const StyledRoot = styled("div")(({
     maxWidth: "500px"
   },
   ".description": {
-    fontSize: 18,
+    fontSize: 16,
     marginBottom: theme.spacing(4),
     color: theme.palette.grey[600]
   },
@@ -22,12 +24,12 @@ export const StyledRoot = styled("div")(({
     borderRadius: 8
   },
   ".img-wrapper": {
-    height: 400,
+    height: 560,
     display: "flex",
     marginInline: "auto",
     position: "relative",
     img: {
-      objectFit: "contain"
+      objectFit: "cover"
     }
   },
   [theme.breakpoints.up("md")]: {

@@ -1,5 +1,6 @@
-import { components, typography, getPalette } from "./core";
-import { COLORS } from "./types";
+import {components, getPalette, typography} from "./core";
+import {COLORS} from "./types";
+
 const breakpoints = {
   values: {
     xs: 0,
@@ -11,14 +12,31 @@ const breakpoints = {
   }
 };
 // Market 1 only theme - use default dark theme for all routes
-export default function themeOptions(pathname) {
+export default function themeOptions() {
   // Use default dark theme for all routes since we only have Market 1
   const selectedPalette = getPalette(COLORS.DARK);
-  const themeOption = {
-    typography,
-    components,
-    breakpoints,
-    palette: selectedPalette
+
+  // Override primary with brand accent (Pantone 7614C -> #A37F74)
+  const brandPrimary = {
+    ...selectedPalette.primary,
+    main: "#A37F74",
+    light: "#B8948A",
+    dark: "#7F625A",
+    contrastText: "#FFFFFF"
   };
-  return themeOption;
+    return {
+      typography,
+      components,
+      breakpoints,
+      palette: {
+          ...selectedPalette,
+          primary: brandPrimary,
+          accent: {
+              main: "#A37F74",
+              light: "#B8948A",
+              dark: "#7F625A",
+              contrastText: "#FFFFFF"
+          }
+      }
+  };
 }

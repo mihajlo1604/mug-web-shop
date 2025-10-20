@@ -17,22 +17,12 @@ export default function CarouselBanner({
   }, [AutoPlay({
     delay: 3000
   })]);
-  return <Box mt={4} borderRadius={3} bgcolor="grey.50" position="relative" px={{
-    xs: 3,
-    sm: 6
-  }} py={{
-    xs: 3,
-    sm: 4
-  }}>
-      <Carousel ref={ref} api={api} sx={{
-      py: {
-        xs: 2,
-        sm: 5
-      }
-    }}>
+  // Clean Hero: minimal UI, full-bleed within Container, fixed height
+  return <Box mt={4} borderRadius={0} bgcolor="transparent" position="relative" px={0} py={0}>
+      <Carousel ref={ref} api={api} sx={{ height: 560 }}>
         {children}
       </Carousel>
 
-      <CarouselDots scrollSnaps={dots.scrollSnaps} selectedIndex={dots.selectedIndex} onDotButtonClick={dots.onDotButtonClick} />
+      <CarouselDots sx={{ mt: 2 }} scrollSnaps={dots.scrollSnaps} selectedIndex={dots.selectedIndex} onDotButtonClick={dots.onDotButtonClick} />
     </Box>;
 }

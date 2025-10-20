@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 export function useCarouselArrows(emblaApi) {
-  const [disablePrev, setDisabledPrevBtn] = useState(true);
-  const [disableNext, setDisabledNextBtn] = useState(true);
+  // Start as null to avoid SSR/CSR disabled attribute mismatch
+  const [disablePrev, setDisabledPrevBtn] = useState(null);
+  const [disableNext, setDisabledNextBtn] = useState(null);
   const onClickPrev = useCallback(() => {
     if (!emblaApi) return;
     emblaApi.scrollPrev();

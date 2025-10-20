@@ -1,9 +1,10 @@
 import { cache } from "react";
 import axios from "utils/axiosInstance";
-const getMainCarousel = cache(async () => {
-  const response = await axios.get("/api/market-1/main-carousel");
+// Do not cache the main carousel so updates to images reflect immediately
+const getMainCarousel = async () => {
+  const response = await axios.get("/api/market-1/main-carousel", { headers: { "x-no-cache": "1" } });
   return response.data;
-});
+};
 const getFlashDeals = cache(async () => {
   const response = await axios.get("/api/market-1/flash-deals");
   return response.data;

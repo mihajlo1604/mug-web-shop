@@ -23,6 +23,7 @@ export default function OrderConfirmationPageView() {
   
   return <Container className="mt-2 mb-5">
       <Wrapper>
+        <Image width={220} height={74} alt="DOSE logo" src="/assets/images/withBackgroundLogo.png" />
         <Image width={116} height={116} alt="complete" src="/assets/images/illustrations/party-popper.svg" />
 
         <Typography variant="h1" fontWeight={700}>
