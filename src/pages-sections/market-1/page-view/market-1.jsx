@@ -10,7 +10,8 @@ import Section6 from "../section-6";
 import Section7 from "../section-7";
 
 export default async function MarketOnePageView() {
-  return <Fragment>
+  return (
+    <Fragment>
       {/* HOME AND LANGUAGE TOGGLE BUTTONS */}
       <FixedHeaderButtons />
 
@@ -21,9 +22,10 @@ export default async function MarketOnePageView() {
       <Section4 />
 
       {/* NEW ARRIVALS SECTION */}
-      <Section6 />
+      {/* <Section6 /> */}
 
       {/* GRID PRODUCTS SECTION */}
       <Section7 />
-    </Fragment>;
+    </Fragment>
+  );
 }
