@@ -575,8 +575,11 @@ export default [{
   label: "Senegal",
   value: "SN"
 }, {
-  label: "Serbia and Montenegro",
-  value: "CS"
+  label: "Serbia",
+  value: "RS"
+},{
+  label: "Montenegro",
+  value: "ME"
 }, {
   label: "Seychelles",
   value: "SC"

@@ -15,30 +15,54 @@ import { Wrapper, StyledButton } from "./styles";
 export default function OrderConfirmationPageView() {
   const { t } = useTranslation();
   const { dispatch } = useCart();
-  
+
   // Clear cart when order confirmation page loads
   useEffect(() => {
-    dispatch({ type: 'CLEAR_CART' });
+    dispatch({ type: "CLEAR_CART" });
   }, [dispatch]);
-  
-  return <Container className="mt-2 mb-5">
+
+  return (
+    <Container className="mt-2 mb-5">
       <Wrapper>
-        <Image width={220} height={74} alt="DOSE logo" src="/assets/images/withBackgroundLogo.png" />
-        <Image width={116} height={116} alt="complete" src="/assets/images/illustrations/party-popper.svg" />
+        <Image
+          width={116}
+          height={116}
+          alt="complete"
+          src="/assets/images/illustrations/party-popper.svg"
+        />
+        <Image
+          width={220}
+          height={74}
+          alt="DOSE logo"
+          src="/assets/images/withBackgroundLogo.png"
+        />
 
         <Typography variant="h1" fontWeight={700}>
-          {t('order.thankYou')}
+          {t("order.thankYou")}
         </Typography>
 
-        <Typography fontSize={16} variant="body1" color="text.secondary" sx={{
-        padding: ".5rem 2rem"
-      }}>
-          {t('order.confirmation')}
+        <Typography
+          fontSize={16}
+          variant="body1"
+          color="text.secondary"
+          sx={{
+            padding: ".5rem 2rem",
+          }}
+        >
+          {t("order.confirmation")}
         </Typography>
 
-        <StyledButton color="primary" disableElevation variant="contained" className="button-link" LinkComponent={Link} href="/">
-          {t('order.browseProducts')}
+        <StyledButton
+          color="primary"
+          disableElevation
+          variant="contained"
+          className="button-link"
+          LinkComponent={Link}
+          href="/"
+        >
+          {t("order.browseProducts")}
         </StyledButton>
       </Wrapper>
-    </Container>;
+    </Container>
+  );
 }

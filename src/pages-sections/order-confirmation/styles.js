@@ -13,13 +13,15 @@ export const Wrapper = styled(Card)(({
   padding: "3rem",
   maxWidth: "630px",
   textAlign: "center",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
   backgroundColor: theme.palette.grey[50],
   h1: {
     marginTop: "1.5rem",
     lineHeight: 1.1
   }
-}));
-export const StyledButton = styled(Button)({
+}));export const StyledButton = styled(Button)({
   marginTop: "2rem",
   padding: "11px 24px"
 });
