@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 // CUSTOM COMPONENTS
 import Logo from "components/logo/Logo";
 import LanguageToggle from "components/language-toggle";
+import { MainMobileMenu } from "./main-mobile-menu";
 
 export default function MainNavbar() {
   const { t } = useTranslation();
@@ -21,6 +22,11 @@ export default function MainNavbar() {
     { label: t("footer.about"), href: "/about" },
     { label: t("footer.contact"), href: "/contact" },
   ];
+
+  const mappedNavLinks = navLinks.map(link => ({
+    title: link.label,
+    url: link.href
+  }));
 
   return (
     <AppBar 
@@ -96,36 +102,11 @@ export default function MainNavbar() {
           <Box 
             sx={{ 
               display: { xs: "flex", md: "none" },
-              gap: 0.5,
-              alignItems: "center",
               flex: 1,
               justifyContent: "center",
             }}
           >
-            {navLinks.map((link) => (
-              <Button
-                key={link.href}
-                component={Link}
-                href={link.href}
-                size="small"
-                sx={{
-                  color: "grey.300",
-                  fontSize: { xs: 11, sm: 13 },
-                  fontWeight: 500,
-                  px: { xs: 0.5, sm: 1 },
-                  py: 1,
-                  minWidth: "auto",
-                  textTransform: "none",
-                  transition: "color 0.3s ease",
-                  "&:hover": {
-                    color: "primary.main",
-                    backgroundColor: "transparent",
-                  },
-                }}
-              >
-                {link.label}
-              </Button>
-            ))}
+            <MainMobileMenu navigation={mappedNavLinks} />
           </Box>
 
           {/* Language Toggle - Right */}
