@@ -22,6 +22,8 @@ import SettingsProvider from "contexts/SettingContext";
 import RTL from "components/rtl";
 import ProgressBar from "components/progress";
 import { FooterMinimal } from "components/footer";
+import MainNavbar from "components/main-navbar";
+import CartButton from "components/cart-button";
 import Box from "@mui/material/Box";
 
 
@@ -49,6 +51,9 @@ export default function RootLayout({
                   flexDirection: "column", 
                   minHeight: "100vh" 
                 }}>
+                  {/* Main Navbar */}
+                  <MainNavbar />
+                  
                   <Box sx={{ flex: "1 0 auto" }}>
                     {modal}
                     {children}
@@ -57,6 +62,9 @@ export default function RootLayout({
                     <FooterMinimal />
                   </Box>
                 </Box>
+                
+                {/* Cart Button - Fixed Position */}
+                <CartButton />
               </RTL>
 
               <ProgressBar />

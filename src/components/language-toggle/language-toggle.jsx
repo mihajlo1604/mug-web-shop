@@ -44,14 +44,17 @@ export default function LanguageToggle() {
         onClick={handleClick}
         startIcon={<LanguageIcon />}
         variant="outlined"
-        color="primary"
         sx={{
+          color: "grey.300",
+          borderColor: "grey.600",
           borderRadius: 2,
           px: 2,
           py: 1,
-          boxShadow: 1,
+          transition: "all 0.3s ease",
           '&:hover': {
-            boxShadow: 2,
+            color: "primary.main",
+            borderColor: "primary.main",
+            backgroundColor: "transparent",
           }
         }}
       >
@@ -64,12 +67,32 @@ export default function LanguageToggle() {
         MenuListProps={{
           'aria-labelledby': 'language-button',
         }}
+        PaperProps={{
+          sx: {
+            bgcolor: "grey.800",
+            color: "white",
+          }
+        }}
       >
         {languages.map((lang) => (
           <MenuItem
             key={lang.code}
             onClick={() => changeLanguage(lang.code)}
             selected={currentLang === lang.code}
+            sx={{
+              color: "grey.300",
+              '&:hover': {
+                color: "primary.main",
+                bgcolor: "grey.700",
+              },
+              '&.Mui-selected': {
+                color: "primary.main",
+                bgcolor: "grey.700",
+                '&:hover': {
+                  bgcolor: "grey.600",
+                }
+              }
+            }}
           >
             {lang.flag} {lang.label}
           </MenuItem>
