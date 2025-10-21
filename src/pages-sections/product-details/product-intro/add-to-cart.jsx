@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@mui/material/Button";
+import { useTranslation } from "react-i18next";
 
 // GLOBAL CUSTOM HOOK
 import useCart from "hooks/useCart";
@@ -18,6 +19,7 @@ import useCart from "hooks/useCart";
 export default function AddToCart({
   product
 }) {
+  const { t } = useTranslation();
   const {
     id,
     price,
@@ -55,6 +57,6 @@ export default function AddToCart({
     px: "1.75rem",
     height: 40
   }}>
-      Add to Cart
+      {t("button.addToCart")}
     </Button>;
 }

@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Button from "@mui/material/Button";
+import { useTranslation } from "react-i18next";
 import useCart from "hooks/useCart";
 import IconLink from "components/icon-link";
 export default function ButtonGroup({
   product
 }) {
+  const { t } = useTranslation();
   const [isLoading, setLoading] = useState(false);
   const {
     dispatch
@@ -26,7 +28,7 @@ export default function ButtonGroup({
   };
   return <>
       <Button disableElevation size="large" color="primary" variant="contained" loading={isLoading} onClick={handleAddToCart}>
-        Add to Cart
+        {t("button.addToCart")}
       </Button>
 
       <IconLink title="View Product Details" url={`/products/${product.slug}`} sx={{

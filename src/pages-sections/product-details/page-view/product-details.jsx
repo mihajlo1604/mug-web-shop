@@ -1,7 +1,7 @@
 import Container from "@mui/material/Container";
 
 // LOCAL CUSTOM COMPONENTS
-import ProductIntro from "../product-intro";
+import ProductIntro from "../product-intro/product-intro";
 import ProductDescription from "../product-description";
 
 // CUSTOM DATA MODEL

@@ -47,6 +47,20 @@ export const resources = {
       "button.checkout": "Checkout",
       "button.processing": "Processing...",
       "button.addToCart": "Add to Cart",
+      "button.quickView": "Quick View",
+
+      // Product Details
+      "product.category": "Category",
+      "product.productCode": "Product Code",
+      "product.brand": "Brand",
+      "product.material": "Material",
+      "product.insulation": "Insulation",
+      "product.capacity": "Capacity",
+      "product.hot": "Hot",
+      "product.cold": "Cold",
+      "product.leakProof": "Leak-proof",
+      "product.bpaFree": "BPA-free",
+      "product.dishwasherSafe": "Dishwasher Safe",
 
       // Errors
       "error.cartEmpty": "Your cart is empty",
@@ -181,6 +195,20 @@ export const resources = {
       "button.checkout": "Naruči",
       "button.processing": "Obrađujem...",
       "button.addToCart": "Dodaj u Korpu",
+      "button.quickView": "Brzi Pregled",
+
+      // Product Details
+      "product.category": "Kategorija",
+      "product.productCode": "Šifra Proizvoda",
+      "product.brand": "Brend",
+      "product.material": "Materijal",
+      "product.insulation": "Izolacija",
+      "product.capacity": "Kapacitet",
+      "product.hot": "Toplo",
+      "product.cold": "Hladno",
+      "product.leakProof": "Otporno na curenje",
+      "product.bpaFree": "BPA-free",
+      "product.dishwasherSafe": "Može u mašinu za sudove",
 
       // Errors
       "error.cartEmpty": "Vaša korpa je prazna",

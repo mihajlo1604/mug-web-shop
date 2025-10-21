@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 
 export default function ProductDescription({ product }) {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const currentLang = i18n.language || 'en';
 
   // Determine specifications based on product size
@@ -417,15 +417,15 @@ Care: Wash the thermos with a little detergent under running water.`;
 
       {/* Specifications table */}
       <div>
-        {currentLang === 'sr' ? 'Brend' : 'Brand'}: Dose <br />
-        {currentLang === 'sr' ? 'Materijal' : 'Material'}: 18/8 {currentLang === 'sr' ? 'Nerđajući Čelik' : 'Stainless Steel'} <br />
-        {currentLang === 'sr' ? 'Izolacija' : 'Insulation'}: {currentLang === 'sr' ? 'Dupli Zid Vakuum' : 'Double Wall Vacuum'} <br />
-        {currentLang === 'sr' ? 'Kapacitet' : 'Capacity'}: {specs.capacity} <br />
-        {currentLang === 'sr' ? 'Toplo' : 'Hot'}: {specs.hot} <br />
-        {currentLang === 'sr' ? 'Hladno' : 'Cold'}: {specs.cold} <br />
-        {currentLang === 'sr' ? 'Otporno na curenje' : 'Leak-proof'}: {currentLang === 'sr' ? 'Da' : 'Yes'} <br />
-        BPA-free: {currentLang === 'sr' ? 'Da' : 'Yes'} <br />
-        {currentLang === 'sr' ? 'Može u mašinu za sudove' : 'Dishwasher Safe'}: {currentLang === 'sr' ? 'Da' : 'Yes'} <br />
+        {t("product.brand")}: Dose <br />
+        {t("product.material")}: 18/8 {currentLang === 'sr' ? 'Nerđajući Čelik' : 'Stainless Steel'} <br />
+        {t("product.insulation")}: {currentLang === 'sr' ? 'Dupli Zid Vakuum' : 'Double Wall Vacuum'} <br />
+        {t("product.capacity")}: {specs.capacity} <br />
+        {t("product.hot")}: {specs.hot} <br />
+        {t("product.cold")}: {specs.cold} <br />
+        {t("product.leakProof")}: {currentLang === 'sr' ? 'Da' : 'Yes'} <br />
+        {t("product.bpaFree")}: {currentLang === 'sr' ? 'Da' : 'Yes'} <br />
+        {t("product.dishwasherSafe")}: {currentLang === 'sr' ? 'Da' : 'Yes'} <br />
       </div>
     </Box>;
 }

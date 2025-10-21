@@ -8,10 +8,16 @@ import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
 import Logo from "components/logo/Logo";
 
 export default function FooterMinimal() {
   const { t } = useTranslation();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   
   return <Box component="footer" sx={{ 
     mt: 8, 
@@ -39,9 +45,9 @@ export default function FooterMinimal() {
                 lineHeight: 1.6,
                 maxWidth: 300
               }}>
-                {t("about.tagline", {
+                {isMounted ? t("about.tagline", {
                   defaultValue: "Functionality meets modern design. Hydration for every day."
-                })}
+                }) : "Functionality meets modern design. Hydration for every day."}
               </Typography>
             </Stack>
           </Grid>
@@ -54,7 +60,7 @@ export default function FooterMinimal() {
                 fontWeight: 600,
                 mb: 1
               }}>
-                {t("footer.contact.title", { defaultValue: "Contact Us" })}
+                {isMounted ? t("footer.contact.title", { defaultValue: "Contact Us" }) : "Contact Us"}
               </Typography>
               <Stack spacing={2}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -65,7 +71,7 @@ export default function FooterMinimal() {
                     bgcolor: "primary.main" 
                   }} />
                   <Typography variant="body2" sx={{ color: "grey.300" }}>
-                    {t("footer.contact.email", { defaultValue: "support@dose.com" })}
+                    {isMounted ? t("footer.contact.email", { defaultValue: "support@dose.com" }) : "support@dose.com"}
                   </Typography>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -76,7 +82,7 @@ export default function FooterMinimal() {
                     bgcolor: "primary.main" 
                   }} />
                   <Typography variant="body2" sx={{ color: "grey.300" }}>
-                    {t("footer.contact.phone", { defaultValue: "+1 (555) 123-4567" })}
+                    {isMounted ? t("footer.contact.phone", { defaultValue: "+1 (555) 123-4567" }) : "+1 (555) 123-4567"}
                   </Typography>
                 </Box>
               </Stack>
@@ -91,7 +97,7 @@ export default function FooterMinimal() {
                 fontWeight: 600,
                 mb: 1
               }}>
-                {t("footer.navigation", { defaultValue: "Quick Links" })}
+                {isMounted ? t("footer.navigation", { defaultValue: "Quick Links" }) : "Quick Links"}
               </Typography>
               <Stack spacing={2}>
                 <Link href="/about" style={{ 
@@ -103,7 +109,7 @@ export default function FooterMinimal() {
                     color: "grey.300",
                     "&:hover": { color: "primary.main" }
                   }}>
-                    {t("footer.about", { defaultValue: "About Us" })}
+                    {isMounted ? t("footer.about", { defaultValue: "About Us" }) : "About Us"}
                   </Typography>
                 </Link>
                 <Link href="/blog" style={{ 
@@ -115,7 +121,7 @@ export default function FooterMinimal() {
                     color: "grey.300",
                     "&:hover": { color: "primary.main" }
                   }}>
-                    {t("footer.blog", { defaultValue: "Blog" })}
+                    {isMounted ? t("footer.blog", { defaultValue: "Blog" }) : "Blog"}
                   </Typography>
                 </Link>
                 <Link href="/contact" style={{ 
@@ -127,7 +133,7 @@ export default function FooterMinimal() {
                     color: "grey.300",
                     "&:hover": { color: "primary.main" }
                   }}>
-                    {t("footer.contact", { defaultValue: "Contact" })}
+                    {isMounted ? t("footer.contact", { defaultValue: "Contact" }) : "Contact"}
                   </Typography>
                 </Link>
               </Stack>
@@ -141,10 +147,10 @@ export default function FooterMinimal() {
       <Container sx={{ py: 3 }}>
         <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems="center" spacing={2}>
           <Typography variant="body2" sx={{ color: "grey.400" }}>
-            © {new Date().getFullYear()} DOSE — {t("footer.rights", { defaultValue: "All rights reserved." })}
+            © {new Date().getFullYear()} DOSE — {isMounted ? t("footer.rights", { defaultValue: "All rights reserved." }) : "All rights reserved."}
           </Typography>
           <Typography variant="body2" sx={{ color: "grey.400", fontSize: "0.75rem" }}>
-            {t("footer.madeWith", { defaultValue: "Made with ❤️ for hydration" })}
+            {isMounted ? t("footer.madeWith", { defaultValue: "Made with ❤️ for hydration" }) : "Made with ❤️ for hydration"}
           </Typography>
         </Stack>
       </Container>

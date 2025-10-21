@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useState } from "react";
 import Button from "@mui/material/Button";
+import { useTranslation } from "react-i18next";
 
 // GLOBAL CUSTOM HOOK
 import useCart from "hooks/useCart";
@@ -21,6 +22,7 @@ import { HoverWrapper } from "./styles";
 export default function HoverActions({
   product
 }) {
+  const { t } = useTranslation();
   const {
     id,
     slug,
@@ -58,14 +60,14 @@ export default function HoverActions({
   }, []);
   return <HoverWrapper className="hover-box">
       <Link scroll={false} href="/mini-cart">
-        <Button fullWidth color="primary" variant="contained" loading={isCartLoading} onClick={handleAddToCart} aria-label="Add to cart">
-          Add to cart
+        <Button fullWidth color="primary" variant="contained" loading={isCartLoading} onClick={handleAddToCart} aria-label={t("button.addToCart")}>
+          {t("button.addToCart")}
         </Button>
       </Link>
 
       <Link scroll={false} href={`/products/${slug}/view`} onNavigate={handleNavigate}>
-        <Button fullWidth disableElevation color="inherit" variant="contained" className="view-btn" onClick={handleQuickView} loading={isQuickViewLoading} aria-label="Quick view">
-          Quick View
+        <Button fullWidth disableElevation color="inherit" variant="contained" className="view-btn" onClick={handleQuickView} loading={isQuickViewLoading} aria-label={t("button.quickView")}>
+          {t("button.quickView")}
         </Button>
       </Link>
     </HoverWrapper>;

@@ -2,6 +2,7 @@
 
 import { Fragment, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 // MUI ICON COMPONENTS
 import Favorite from "@mui/icons-material/Favorite";
@@ -25,6 +26,7 @@ import { FavoriteButton, AddToCartButton, QuickViewButton } from "./styles";
 export default function HoverActions({
   product
 }) {
+  const { t } = useTranslation();
   const {
     slug,
     id,
@@ -72,7 +74,7 @@ export default function HoverActions({
         <QuickViewButton fullWidth size="large" color="dark" variant="contained" className="product-view-action" onClick={() => router.push(`/products/${slug}/view`, {
         scroll: false
       })}>
-          Quick View
+          {t("button.quickView")}
         </QuickViewButton>
       </div>
     </Fragment>;

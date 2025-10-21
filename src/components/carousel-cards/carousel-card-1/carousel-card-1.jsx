@@ -24,9 +24,9 @@ export default function CarouselCard1({
 }) {
   const { t } = useTranslation();
   
-  return <StyledRoot>
+  return <StyledRoot sx={{ width: "100%" }}>
       <div className="img-wrapper">
-        <LazyImage fill src={imgUrl} alt={t(title)} sizes="(max-width: 768px) 100vw, 100vw" />
+        <LazyImage fill src={imgUrl} alt={t(title)} sizes="100vw" />
       </div>
     </StyledRoot>;
 }

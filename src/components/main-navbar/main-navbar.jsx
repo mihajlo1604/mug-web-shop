@@ -7,14 +7,19 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
 
 // CUSTOM COMPONENTS
 import Logo from "components/logo/Logo";
 import LanguageToggle from "components/language-toggle";
-import { MainMobileMenu } from "./main-mobile-menu";
 
 export default function MainNavbar() {
   const { t } = useTranslation();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const navLinks = [
     { label: t("Home"), href: "/" },
@@ -22,11 +27,6 @@ export default function MainNavbar() {
     { label: t("footer.about"), href: "/about" },
     { label: t("footer.contact"), href: "/contact" },
   ];
-
-  const mappedNavLinks = navLinks.map(link => ({
-    title: link.label,
-    url: link.href
-  }));
 
   return (
     <AppBar 
@@ -65,49 +65,40 @@ export default function MainNavbar() {
           </Box>
 
           {/* Navigation Links - Center */}
-          <Box 
-            sx={{ 
-              display: { xs: "none", md: "flex" },
-              gap: 1,
-              alignItems: "center",
-              flex: 1,
-              justifyContent: "center",
-            }}
-          >
-            {navLinks.map((link) => (
-              <Button
-                key={link.href}
-                component={Link}
-                href={link.href}
-                sx={{
-                  color: "grey.300",
-                  fontSize: 16,
-                  fontWeight: 500,
-                  px: 3,
-                  py: 1,
-                  textTransform: "none",
-                  transition: "color 0.3s ease",
-                  "&:hover": {
-                    color: "primary.main",
-                    backgroundColor: "transparent",
-                  },
-                }}
-              >
-                {link.label}
-              </Button>
-            ))}
-          </Box>
-
-          {/* Mobile Navigation Links */}
-          <Box 
-            sx={{ 
-              display: { xs: "flex", md: "none" },
-              flex: 1,
-              justifyContent: "center",
-            }}
-          >
-            <MainMobileMenu navigation={mappedNavLinks} />
-          </Box>
+          {isMounted && (
+            <Box 
+              sx={{ 
+                display: "flex",
+                gap: 1,
+                alignItems: "center",
+                flex: 1,
+                justifyContent: "center",
+              }}
+            >
+              {navLinks.map((link) => (
+                <Button
+                  key={link.href}
+                  component={Link}
+                  href={link.href}
+                  sx={{
+                    color: "grey.300",
+                    fontSize: { xs: 12, sm: 14, md: 16 },
+                    fontWeight: 500,
+                    px: { xs: 1, sm: 2, md: 3 },
+                    py: 1,
+                    textTransform: "none",
+                    transition: "color 0.3s ease",
+                    "&:hover": {
+                      color: "primary.main",
+                      backgroundColor: "transparent",
+                    },
+                  }}
+                >
+                  {link.label}
+                </Button>
+              ))}
+            </Box>
+          )}
 
           {/* Language Toggle - Right */}
           <Box sx={{ display: "flex", alignItems: "center" }}>

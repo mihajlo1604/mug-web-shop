@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useState } from "react";
 import Button from "@mui/material/Button";
+import { useTranslation } from "react-i18next";
 
 // GLOBAL CUSTOM HOOKS
 import useCart from "hooks/useCart";
@@ -18,6 +19,7 @@ import useCart from "hooks/useCart";
 export default function AddToCart({
   product
 }) {
+  const { t } = useTranslation();
   const {
     slug,
     id,
@@ -47,8 +49,8 @@ export default function AddToCart({
     }, 500);
   }, [dispatch, slug, id, price, title, thumbnail]);
   return <Link scroll={false} href="/mini-cart" className="add-to-cart-btn">
-      <Button fullWidth color="primary" variant="contained" loading={isLoading} onClick={handleAddToCart} aria-label="Add to cart">
-        Add to cart
+      <Button fullWidth color="primary" variant="contained" loading={isLoading} onClick={handleAddToCart} aria-label={t("button.addToCart")}>
+        {t("button.addToCart")}
       </Button>
     </Link>;
 }

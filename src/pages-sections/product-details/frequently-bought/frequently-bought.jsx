@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { useTranslation } from "react-i18next";
 
 // LOCAL CUSTOM COMPONENT
 import FrequentlyProductCard from "./frequently-product-card";
@@ -23,6 +24,7 @@ import { Icon, StyledRoot, TotalCount } from "./styles";
 export default function FrequentlyBought({
   products
 }) {
+  const { t } = useTranslation();
   
 // IF NO PRODUCTS RETURN NULL
   if (!products || !products.length) return null;
@@ -35,7 +37,7 @@ export default function FrequentlyBought({
 
       <div className="content-wrapper">
         {products.map((item, ind) => <Fragment key={item.id}>
-            <FrequentlyProductCard id={item.id} key={item.id} slug={item.slug} price={item.price} title={item.title} imgUrl={item.thumbnail} />
+            <FrequentlyProductCard id={item.id} slug={item.slug} price={item.price} title={item.title} imgUrl={item.thumbnail} />
 
             {ind < products.length - 1 && <Icon>+</Icon>}
           </Fragment>)}
@@ -57,7 +59,7 @@ export default function FrequentlyBought({
 
           <div className="btn-wrapper">
             <Button variant="contained" color="primary">
-              Add to Cart
+              {t("button.addToCart")}
             </Button>
 
             <Button variant="outlined" color="primary">

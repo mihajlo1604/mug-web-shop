@@ -25,11 +25,14 @@ export const StyledRoot = styled("div")(({
   },
   ".img-wrapper": {
     height: 560,
+    width: "100%",
     display: "flex",
     marginInline: "auto",
     position: "relative",
     img: {
-      objectFit: "cover"
+      objectFit: "cover",
+      width: "100%",
+      height: "100%"
     }
   },
   [theme.breakpoints.up("md")]: {
@@ -55,7 +58,7 @@ export const StyledRoot = styled("div")(({
       marginBottom: "2rem"
     },
     ".img-wrapper": {
-      width: 300,
+      width: "100%",
       height: 300
     },
     ".title": {

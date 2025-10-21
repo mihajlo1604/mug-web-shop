@@ -1,4 +1,8 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 // MUI
 import Grid from "@mui/material/Grid";
@@ -28,6 +32,12 @@ import { StyledRoot } from "./styles";
 export default function ProductIntro({
   product
 }) {
+  const { t } = useTranslation();
+  
+  if (!product) {
+    return <div>Loading...</div>;
+  }
+  
   return <StyledRoot sx={{ mt: 24 }}>
       <Grid container spacing={3} justifyContent="space-around">
         {/* IMAGE GALLERY AREA */}
@@ -47,16 +57,16 @@ export default function ProductIntro({
           <Typography variant="h1">{product.title}</Typography>
 
           <Typography variant="body1">
-            Category: <strong>{product.categories?.[0] || 'Thermos'}</strong>
+            {t("product.category")}: <strong>{product.categories?.[0] || 'Thermos'}</strong>
           </Typography>
 
           <Typography variant="body1">
-            Product Code: <strong>{product.id}</strong>
+            {t("product.productCode")}: <strong>{product.id}</strong>
           </Typography>
 
           {/* PRODUCT BRAND */}
           {product.brand && <p className="brand">
-              Brand: <strong>{product.brand}</strong>
+              {t("product.brand")}: <strong>{product.brand}</strong>
             </p>}
 
 

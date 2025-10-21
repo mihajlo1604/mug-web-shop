@@ -19,10 +19,11 @@ export default function CarouselBanner({
   }, [AutoPlay({
     delay: 3000
   })]);
-  // Clean Hero: minimal UI, full-bleed within Container, fixed height
-  return <Box mt={4} borderRadius={0} bgcolor="transparent" position="relative" px={0} py={0}>
+  // Full width carousel with no container constraints
+  return <Box sx={{ width: "100vw", marginLeft: "calc(-50vw + 50%)"}}>
       <Carousel ref={ref} api={api} sx={{
         height: 560,
+        width: "100%",
         [theme.breakpoints.down("md")]: {
           height: 300
         }
@@ -30,6 +31,14 @@ export default function CarouselBanner({
         {children}
       </Carousel>
 
-      <CarouselDots sx={{ mt: 2 }} scrollSnaps={dots.scrollSnaps} selectedIndex={dots.selectedIndex} onDotButtonClick={dots.onDotButtonClick} />
+      <Box sx={{ 
+        position: "relative", 
+        width: "100%", 
+        maxWidth: "1200px", 
+        margin: "0 auto", 
+        padding: "0 24px" 
+      }}>
+        <CarouselDots sx={{ mt: 2 }} scrollSnaps={dots.scrollSnaps} selectedIndex={dots.selectedIndex} onDotButtonClick={dots.onDotButtonClick} />
+      </Box>
     </Box>;
 }
