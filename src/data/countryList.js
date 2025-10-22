@@ -620,9 +620,6 @@ export default [{
   label: "Surilabel",
   value: "SR"
 }, {
-  label: "Serbia",
-  value: "RS"
-}, {
   label: "Montenegro",
   value: "ME"
 },{
