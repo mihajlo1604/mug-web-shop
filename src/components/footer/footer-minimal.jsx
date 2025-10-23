@@ -112,6 +112,18 @@ export default function FooterMinimal() {
                     {isMounted ? t("footer.about", { defaultValue: "About Us" }) : "About Us"}
                   </Typography>
                 </Link>
+                <Link href="/faq" style={{ 
+                  color: "inherit", 
+                  textDecoration: "none",
+                  transition: "color 0.3s ease"
+                }}>
+                  <Typography variant="body2" sx={{ 
+                    color: "grey.300",
+                    "&:hover": { color: "primary.main" }
+                  }}>
+                    {isMounted ? t("FAQ") : "FAQ"}
+                  </Typography>
+                </Link>
                 <Link href="/blog" style={{ 
                   color: "inherit", 
                   textDecoration: "none",

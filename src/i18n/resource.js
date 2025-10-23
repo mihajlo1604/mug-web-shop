@@ -5,6 +5,7 @@ export const resources = {
       HOT: "HOT",
       "Free Express Shipping": "Free Express Shipping",
       Home: "Home",
+      FAQ: "FAQ",
 
       // Cart
       "Your Cart": "Your Cart",
@@ -85,6 +86,22 @@ export const resources = {
       "carousel.compactMiniDesc": "Perfect size for bags and cup holders.",
       "carousel.shopMini": "Shop Mini 0.6L",
 
+      // FAQ
+      "faq.title": "Frequently Asked Questions",
+      "faq.subtitle": "Find quick answers about shipping, returns, product care and more.",
+      "faq.shipping.q": "How long does shipping take?",
+      "faq.shipping.a": "We offer free express shipping on all orders. Delivery typically takes 3-5 business days.",
+      "faq.returns.q": "What is your return policy?",
+      "faq.returns.a": "We offer a 30-day return policy for unused products in original condition.",
+      "faq.care.q": "How do I clean my DOSE bottle/thermos?",
+      "faq.care.a": "Hand wash with warm water and mild soap. Avoid bleach or abrasive cleaners. Remove and clean seals regularly.",
+      "faq.materials.q": "Are DOSE products BPA-free?",
+      "faq.materials.a": "Yes. All DOSE bottles and thermoses are made from high-quality 18/8 stainless steel and are BPA-free.",
+      "faq.insulation.q": "How long do drinks stay hot or cold?",
+      "faq.insulation.a": "Up to 24 hours cold and up to 12 hours hot, depending on ambient conditions and usage.",
+      "faq.warranty.q": "Do you offer a warranty?",
+      "faq.warranty.a": "Yes, we offer a 1-year limited warranty against manufacturing defects. Contact support for assistance.",
+
       // Blog
       Blog: "Blog",
       "blog.readMore": "Read More",
@@ -152,6 +169,7 @@ export const resources = {
       HOT: "POPULARNO",
       "Free Express Shipping": "Besplatna Brza Dostava",
       Home: "Početna",
+      FAQ: "FAQ",
 
       // Cart
       "Your Cart": "Vaša Korpa",
@@ -232,6 +250,22 @@ export const resources = {
       "carousel.compactMini": "Kompaktan. Pouzdan. Mini.",
       "carousel.compactMiniDesc": "Savršena veličina za torbe i držače.",
       "carousel.shopMini": "Kupite Mini 0.6L",
+
+      // FAQ
+      "faq.title": "Često postavljana pitanja",
+      "faq.subtitle": "Pronađite brze odgovore o dostavi, povraćaju, održavanju proizvoda i više.",
+      "faq.shipping.q": "Koliko traje dostava?",
+      "faq.shipping.a": "Nudimo besplatnu brzu dostavu za sve porudžbine. Dostava obično traje 3-5 radnih dana.",
+      "faq.returns.q": "Koja je vaša politika povraćaja?",
+      "faq.returns.a": "Nudimo 30-dnevni rok za povraćaj za nekorišćene proizvode u originalnom stanju.",
+      "faq.care.q": "Kako da čistim svoju DOSE flašicu/termos?",
+      "faq.care.a": "Perite ručno toplom vodom i blagim sapunom. Izbegavajte varikinu i abrazivna sredstva. Redovno čistite zaptivke.",
+      "faq.materials.q": "Da li su DOSE proizvodi bez BPA?",
+      "faq.materials.a": "Da. Sve DOSE flašice i termosi su od visokokvalitetnog 18/8 nerđajućeg čelika i bez BPA.",
+      "faq.insulation.q": "Koliko dugo pića ostaju topla ili hladna?",
+      "faq.insulation.a": "Do 24 sata hladno i do 12 sati toplo, u zavisnosti od uslova i korišćenja.",
+      "faq.warranty.q": "Da li nudite garanciju?",
+      "faq.warranty.a": "Da, nudimo ograničenu garanciju od 1 godine na fabričke nedostatke. Kontaktirajte podršku za pomoć.",
 
       // Blog
       Blog: "Blog",

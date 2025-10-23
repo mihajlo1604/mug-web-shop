@@ -11,12 +11,23 @@ export default function CartButton() {
   const { t } = useTranslation();
   const { state } = useCart();
   const [cartCount, setCartCount] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Ensure component is mounted before rendering
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Calculate total items in cart
   useEffect(() => {
     const totalItems = state.cart.reduce((total, item) => total + item.qty, 0);
     setCartCount(totalItems);
   }, [state.cart]);
+
+  // Don't render until mounted to prevent hydration mismatch
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <Button

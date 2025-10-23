@@ -24,6 +24,7 @@ export default function MainNavbar() {
   const navLinks = [
     { label: t("Home"), href: "/" },
     { label: t("Blog"), href: "/blog" },
+    { label: t("FAQ"), href: "/faq" },
     { label: t("footer.about"), href: "/about" },
     { label: t("footer.contact"), href: "/contact" },
   ];
@@ -65,40 +66,47 @@ export default function MainNavbar() {
           </Box>
 
           {/* Navigation Links - Center */}
-          {isMounted && (
-            <Box 
-              sx={{ 
-                display: "flex",
-                gap: 1,
-                alignItems: "center",
-                flex: 1,
-                justifyContent: "center",
-              }}
-            >
-              {navLinks.map((link) => (
-                <Button
-                  key={link.href}
-                  component={Link}
-                  href={link.href}
-                  sx={{
-                    color: "grey.300",
-                    fontSize: { xs: 12, sm: 14, md: 16 },
-                    fontWeight: 500,
-                    px: { xs: 1, sm: 2, md: 3 },
-                    py: 1,
-                    textTransform: "none",
-                    transition: "color 0.3s ease",
-                    "&:hover": {
-                      color: "primary.main",
-                      backgroundColor: "transparent",
-                    },
-                  }}
-                >
-                  {link.label}
-                </Button>
-              ))}
-            </Box>
-          )}
+          <Box 
+            sx={{ 
+              display: "flex",
+              gap: 1,
+              alignItems: "center",
+              flex: 1,
+              justifyContent: "center",
+            }}
+          >
+            {isMounted ? navLinks.map((link) => (
+              <Button
+                key={link.href}
+                component={Link}
+                href={link.href}
+                sx={{
+                  color: "grey.300",
+                  fontSize: { xs: 12, sm: 14, md: 16 },
+                  fontWeight: 500,
+                  px: { xs: 1, sm: 2, md: 3 },
+                  py: 1,
+                  textTransform: "none",
+                  transition: "color 0.3s ease",
+                  "&:hover": {
+                    color: "primary.main",
+                    backgroundColor: "transparent",
+                  },
+                }}
+              >
+                {link.label}
+              </Button>
+            )) : (
+              // Show placeholder buttons during SSR to maintain layout
+              <>
+                <Button sx={{ color: "grey.300", fontSize: { xs: 12, sm: 14, md: 16 }, fontWeight: 500, px: { xs: 1, sm: 2, md: 3 }, py: 1, textTransform: "none" }}>Home</Button>
+                <Button sx={{ color: "grey.300", fontSize: { xs: 12, sm: 14, md: 16 }, fontWeight: 500, px: { xs: 1, sm: 2, md: 3 }, py: 1, textTransform: "none" }}>Blog</Button>
+                <Button sx={{ color: "grey.300", fontSize: { xs: 12, sm: 14, md: 16 }, fontWeight: 500, px: { xs: 1, sm: 2, md: 3 }, py: 1, textTransform: "none" }}>FAQ</Button>
+                <Button sx={{ color: "grey.300", fontSize: { xs: 12, sm: 14, md: 16 }, fontWeight: 500, px: { xs: 1, sm: 2, md: 3 }, py: 1, textTransform: "none" }}>About</Button>
+                <Button sx={{ color: "grey.300", fontSize: { xs: 12, sm: 14, md: 16 }, fontWeight: 500, px: { xs: 1, sm: 2, md: 3 }, py: 1, textTransform: "none" }}>Contact</Button>
+              </>
+            )}
+          </Box>
 
           {/* Language Toggle - Right */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
