@@ -9,7 +9,7 @@ export default async function BlogPage() {
   const blogs = await api.getBlogs();
 
   return (
-    <Container sx={{ py: 4, mt: 8 }}>
+    <Container sx={{ py: 4 }}>
       <Box sx={{ mb: 4, textAlign: 'center' }}>
         <Typography variant="h2" component="h1" sx={{ mb: 2, fontWeight: 700 }}>
           Blog

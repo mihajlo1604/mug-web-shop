@@ -38,7 +38,7 @@ export default function ProductIntro({
     return <div>Loading...</div>;
   }
   
-  return <StyledRoot sx={{ mt: 24 }}>
+  return <StyledRoot>
       <Grid container spacing={3} justifyContent="space-around">
         {/* IMAGE GALLERY AREA */}
         <Grid size={{

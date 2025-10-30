@@ -44,7 +44,7 @@ export default function BlogArticlePage() {
 
   if (loading) {
     return (
-      <Container sx={{ py: 4, mt: 8, textAlign: 'center' }}>
+      <Container sx={{ py: 4, textAlign: 'center' }}>
         <Typography variant="h4">{t('blog.loading')}</Typography>
       </Container>
     );
@@ -52,7 +52,7 @@ export default function BlogArticlePage() {
 
   if (error || !blog) {
     return (
-      <Container sx={{ py: 4, mt: 8, textAlign: 'center' }}>
+      <Container sx={{ py: 4, textAlign: 'center' }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           {error || t('blog.noArticles')}
         </Typography>
@@ -75,7 +75,7 @@ export default function BlogArticlePage() {
   const displayContent = currentLang === 'sr' && blog.contentSr ? blog.contentSr : blog.content;
 
   return (
-    <Container sx={{ py: 4, mt: 8, maxWidth: 800 }}>
+    <Container sx={{ py: 4, maxWidth: 800 }}>
       {/* Back button */}
       <Box sx={{ mb: 4 }}>
         <Button

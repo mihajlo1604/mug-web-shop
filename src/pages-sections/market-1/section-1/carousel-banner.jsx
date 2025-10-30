@@ -20,7 +20,14 @@ export default function CarouselBanner({
     delay: 3000
   })]);
   // Full width carousel with no container constraints
-  return <Box sx={{ width: "65vw", mx: "auto" }}>
+  return <Box sx={{ 
+      width: "65vw", 
+      mx: "auto",
+      [theme.breakpoints.down("md")]: {
+        width: "100vw",
+        mx: "calc(-50vw + 50%)"
+      }
+    }}>
       <Carousel ref={ref} api={api} sx={{
         height: 560,
         width: "100%",
