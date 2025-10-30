@@ -10,6 +10,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Image from "next/image";
 import { format } from "date-fns/format";
 import api from "utils/__api__/blog";
+import { mt } from "date-fns/locale";
 
 export default function BlogArticlePage() {
   const { t, i18n } = useTranslation();
@@ -27,11 +28,11 @@ export default function BlogArticlePage() {
         if (blogData) {
           setBlog(blogData);
         } else {
-          setError('Article not found');
+          setError("Article not found");
         }
       } catch (err) {
-        setError('Failed to load article');
-        console.error('Error fetching blog:', err);
+        setError("Failed to load article");
+        console.error("Error fetching blog:", err);
       } finally {
         setLoading(false);
       }
@@ -44,35 +45,37 @@ export default function BlogArticlePage() {
 
   if (loading) {
     return (
-      <Container sx={{ py: 4, textAlign: 'center' }}>
-        <Typography variant="h4">{t('blog.loading')}</Typography>
+      <Container sx={{ py: 4, mt: 2, textAlign: "center" }}>
+        <Typography variant="h4">{t("blog.loading")}</Typography>
       </Container>
     );
   }
 
   if (error || !blog) {
     return (
-      <Container sx={{ py: 4, textAlign: 'center' }}>
+      <Container sx={{ py: 4, mt: 2, textAlign: "center" }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
-          {error || t('blog.noArticles')}
+          {error || t("blog.noArticles")}
         </Typography>
         <Button
           variant="contained"
           startIcon={<ArrowBackIcon />}
-          onClick={() => router.push('/blog')}
+          onClick={() => router.push("/blog")}
           sx={{ mt: 2 }}
         >
-          {t('blog.backToBlog')}
+          {t("blog.backToBlog")}
         </Button>
       </Container>
     );
   }
 
-  const currentLang = i18n.language || 'en';
-  
+  const currentLang = i18n.language || "en";
+
   // Use translated content based on current language
-  const displayTitle = currentLang === 'sr' && blog.titleSr ? blog.titleSr : blog.title;
-  const displayContent = currentLang === 'sr' && blog.contentSr ? blog.contentSr : blog.content;
+  const displayTitle =
+    currentLang === "sr" && blog.titleSr ? blog.titleSr : blog.title;
+  const displayContent =
+    currentLang === "sr" && blog.contentSr ? blog.contentSr : blog.content;
 
   return (
     <Container sx={{ py: 4, maxWidth: 800 }}>
@@ -81,10 +84,10 @@ export default function BlogArticlePage() {
         <Button
           variant="outlined"
           startIcon={<ArrowBackIcon />}
-          onClick={() => router.push('/blog')}
+          onClick={() => router.push("/blog")}
           sx={{ mb: 3 }}
         >
-          {t('blog.backToBlog')}
+          {t("blog.backToBlog")}
         </Button>
       </Box>
 
@@ -94,29 +97,37 @@ export default function BlogArticlePage() {
           {displayTitle}
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-          {t('blog.postedOn')} {format(new Date(blog.date), "MMMM dd, yyyy")}
+          {t("blog.postedOn")} {format(new Date(blog.date), "MMMM dd, yyyy")}
         </Typography>
       </Box>
 
       {/* Article image */}
-      <Box sx={{ mb: 4, position: 'relative', height: 400, borderRadius: 2, overflow: 'hidden' }}>
+      <Box
+        sx={{
+          mb: 4,
+          position: "relative",
+          height: 400,
+          borderRadius: 2,
+          overflow: "hidden",
+        }}
+      >
         <Image
           fill
           src={blog.thumbnail}
           alt={displayTitle}
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: "cover" }}
           priority
         />
       </Box>
 
       {/* Article content */}
       <Box sx={{ mb: 4 }}>
-        <Typography 
-          variant="body1" 
-          sx={{ 
-            lineHeight: 1.8, 
-            fontSize: '1.1rem',
-            whiteSpace: 'pre-line'
+        <Typography
+          variant="body1"
+          sx={{
+            lineHeight: 1.8,
+            fontSize: "1.1rem",
+            whiteSpace: "pre-line",
           }}
         >
           {displayContent}
@@ -124,14 +135,14 @@ export default function BlogArticlePage() {
       </Box>
 
       {/* Back to blog button */}
-      <Box sx={{ textAlign: 'center', mt: 6 }}>
+      <Box sx={{ textAlign: "center", mt: 6 }}>
         <Button
           variant="contained"
           startIcon={<ArrowBackIcon />}
-          onClick={() => router.push('/blog')}
+          onClick={() => router.push("/blog")}
           size="large"
         >
-          {t('blog.backToBlog')}
+          {t("blog.backToBlog")}
         </Button>
       </Box>
     </Container>
