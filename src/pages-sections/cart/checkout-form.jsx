@@ -27,7 +27,7 @@ import countryList from "data/countryList";
 // CUSTOM UTILS LIBRARY FUNCTION
 import { currency } from "lib";
 export default function CheckoutForm() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const { state, dispatch } = useCart();
   
@@ -98,8 +98,11 @@ export default function CheckoutForm() {
         ...formData,
         country: typeof formData.country === 'string' ? formData.country : formData.country?.label || '',
         cartItems: state.cart,
-        total: getTotalPrice()
+        total: getTotalPrice(),
+        language: i18n.language || 'en'
       };
+      
+      console.log('Sending order with language:', i18n.language);
 
       const response = await fetch('/api/send-order-email', {
         method: 'POST',

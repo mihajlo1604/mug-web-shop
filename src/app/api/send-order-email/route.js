@@ -1,9 +1,52 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// Email translations
+const emailTranslations = {
+  en: {
+    "email.orderConfirmation": "Order Confirmation",
+    "email.dear": "Dear",
+    "email.thankYou": "Thank you for your order! We have received your order and will process it shortly.",
+    "email.orderSummary": "Order Summary",
+    "email.shippingAddress": "Shipping Address",
+    "email.yourComments": "Your Comments",
+    "email.shipment": "Please expect your shipment within 3 to 5 working days.",
+    "email.thankYouChoosing": "Thank you for choosing us!",
+    "email.orderPlaced": "Order placed on",
+    "email.item": "Item",
+    "email.quantity": "Quantity",
+    "email.price": "Price",
+    "email.total": "Total"
+  },
+  sr: {
+    "email.orderConfirmation": "Potvrda Narudžbine",
+    "email.dear": "Poštovani",
+    "email.thankYou": "Hvala vam na narudžbini! Primili smo vašu narudžbinu i obrađivaćemo je uskoro.",
+    "email.orderSummary": "Pregled Narudžbine",
+    "email.shippingAddress": "Adresa Za Dostavu",
+    "email.yourComments": "Vaše Napomene",
+    "email.shipment": "Očekujte vašu pošiljku unutar 3 do 5 radnih dana.",
+    "email.thankYouChoosing": "Hvala vam što ste izabrali nas!",
+    "email.orderPlaced": "Narudžbina data",
+    "email.item": "Proizvod",
+    "email.quantity": "Količina",
+    "email.price": "Cena",
+    "email.total": "Ukupno"
+  }
+};
+
+// Helper function to get translations based on language
+function getTranslation(key, language = 'en') {
+  const translations = emailTranslations[language] || emailTranslations.en;
+  return translations[key] || key;
+}
+
 export async function POST(request) {
   try {
     const orderData = await request.json();
+    const language = orderData.language || 'en';
+    
+    console.log('Email language:', language);
 
     // Validate required fields
     const requiredFields = ['fullName', 'phone', 'email', 'addressLine1', 'country', 'zipCode'];
@@ -96,20 +139,20 @@ export async function POST(request) {
 
     const customerEmailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #333;">Order Confirmation</h2>
+        <h2 style="color: #333;">${getTranslation('email.orderConfirmation', language)}</h2>
         
-        <p>Dear ${orderData.fullName},</p>
+        <p>${getTranslation('email.dear', language)} ${orderData.fullName},</p>
         
-        <p>Thank you for your order! We have received your order and will process it shortly.</p>
+        <p>${getTranslation('email.thankYou', language)}</p>
         
-        <h3>Order Summary:</h3>
+        <h3>${getTranslation('email.orderSummary', language)}:</h3>
         <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
           <thead>
             <tr style="background-color: #f5f5f5;">
-              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Item</th>
-              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Quantity</th>
-              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Price</th>
-              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Total</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">${getTranslation('email.item', language)}</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">${getTranslation('email.quantity', language)}</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">${getTranslation('email.price', language)}</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">${getTranslation('email.total', language)}</th>
             </tr>
           </thead>
           <tbody>
@@ -124,30 +167,30 @@ export async function POST(request) {
           </tbody>
           <tfoot>
             <tr style="background-color: #f5f5f5; font-weight: bold;">
-              <td colspan="3" style="border: 1px solid #ddd; padding: 8px; text-align: right;">Total:</td>
+              <td colspan="3" style="border: 1px solid #ddd; padding: 8px; text-align: right;">${getTranslation('email.total', language)}:</td>
               <td style="border: 1px solid #ddd; padding: 8px;">$${total.toFixed(2)}</td>
             </tr>
           </tfoot>
         </table>
         
-        <h3>Shipping Address:</h3>
+        <h3>${getTranslation('email.shippingAddress', language)}:</h3>
         <p>${orderData.addressLine1}</p>
         ${orderData.addressLine2 ? `<p>${orderData.addressLine2}</p>` : ''}
         <p>${orderData.country} ${orderData.zipCode}</p>
         
         ${orderData.comments ? `
-          <h3>Your Comments:</h3>
+          <h3>${getTranslation('email.yourComments', language)}:</h3>
           <p style="background-color: #f9f9f9; padding: 10px; border-left: 4px solid #007bff;">
             ${orderData.comments}
           </p>
         ` : ''}
         
-        <p>Please expect your shipment within 3 to 5 working days.</p>
+        <p>${getTranslation('email.shipment', language)}</p>
         
-        <p>Thank you for choosing us!</p>
+        <p>${getTranslation('email.thankYouChoosing', language)}</p>
         
         <p style="margin-top: 30px; color: #666; font-size: 12px;">
-          Order placed on ${new Date().toLocaleString()}
+          ${getTranslation('email.orderPlaced', language)} ${new Date().toLocaleString()}
         </p>
       </div>
     `;
@@ -164,7 +207,7 @@ export async function POST(request) {
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
       to: orderData.email,
-      subject: 'Order Confirmation',
+      subject: getTranslation('email.orderConfirmation', language),
       html: customerEmailHtml,
     });
 
