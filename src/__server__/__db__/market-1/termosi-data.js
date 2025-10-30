@@ -26,14 +26,12 @@ const createProduct = ({ id, sizeLabel, categoryLabel, colorName, price, discoun
 // Hero carousel content
 // =====================
 export const mainCarouselData = [
-  { title: "carousel.title1", imgUrl: "/assets/images/B69B9222.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
-  { title: "carousel.title1", imgUrl: "/assets/images/B69B8871.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
-  { title: "carousel.title1", imgUrl: "/assets/images/B69B9240.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
-  { title: "carousel.title1", imgUrl: "/assets/images/B69B9243.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
-  { title: "carousel.title1", imgUrl: "/assets/images/B69B9248.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
-  { title: "carousel.title1", imgUrl: "/assets/images/B69B9562.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
-  { title: "carousel.title1", imgUrl: "/assets/images/B69B9580.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
-  { title: "carousel.title1", imgUrl: "/assets/images/B69B9643.jpg", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" }
+  { title: "carousel.title1", imgUrl: "/assets/images/carousel/dose.png", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/carousel/1.png", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/carousel/2.png", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/carousel/3.png", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/carousel/4.png", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" },
+  { title: "carousel.title1", imgUrl: "/assets/images/carousel/5.png", description: "carousel.description1", buttonText: "carousel.shopNow", buttonLink: "#" }
 ];
 
 // ===============
